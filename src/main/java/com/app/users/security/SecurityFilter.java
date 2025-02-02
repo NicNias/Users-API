@@ -22,8 +22,8 @@ public class SecurityFilter extends OncePerRequestFilter {
     protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException, AuthenticationException {
         if (request.getRequestURI().startsWith("/swagger")
             || request.getRequestURI().startsWith("/v3/api-docs")
-            || request.getRequestURI().startsWith("/adm/login")
-            || request.getRequestURI().startsWith("/api-docs")) {
+            || request.getRequestURI().startsWith("/swagger-ui/index.html")
+            || request.getRequestURI().startsWith("/adm/login")) {
             filterChain.doFilter(request, response);
             return;
         }
